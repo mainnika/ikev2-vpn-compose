@@ -1,0 +1,16 @@
+version: '3'
+services:
+  access:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    cap_add:
+      - NET_ADMIN
+    dns: 1.1.1.1
+    network_mode: "bridge"
+    ports:
+      - "500:500/udp"
+      - "4500:4500/udp"
+    restart: unless-stopped
+        
+
